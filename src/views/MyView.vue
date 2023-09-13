@@ -25,7 +25,7 @@
 .center {
   display: grid;
   border: 1px solid gray;
-  width: 100px;
+  width: 120px;
   height: 100px;
   place-items: center;
 }

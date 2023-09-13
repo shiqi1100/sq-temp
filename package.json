@@ -11,7 +11,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "prepare": "husky install",
-    "lint-staged": "lint-staged",
+    "lint:staged": "lint-staged",
     "git-commit": "git add . && git cz"
   },
   "browserslist": [
@@ -32,7 +32,7 @@
       "prettier --write",
       "stylelint --fix"
     ],
-    "*.{css,less,html}": [
+    "*.{css,scss,html}": [
       "prettier --write",
       "stylelint --fix"
     ],
