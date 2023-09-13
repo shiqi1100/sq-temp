@@ -13,7 +13,12 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+function add (a,b) {
+  console.log('add',a,b)
+}
+add (1,2)
+</script>
 
 <style scoped lang="scss">
 .px-box {
