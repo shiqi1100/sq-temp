@@ -2,7 +2,7 @@
   "name": "vite-mobile-20230911",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite --host --open",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",
