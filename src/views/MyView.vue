@@ -14,10 +14,10 @@
 </template>
 
 <script setup lang="ts">
-function add (a,b) {
-  console.log('add',a,b)
+function add(a: number, b) {
+  console.log('add', a, b)
 }
-add (1,2)
+add(1, 2)
 </script>
 
 <style scoped lang="scss">
