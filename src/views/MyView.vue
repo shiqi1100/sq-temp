@@ -14,10 +14,12 @@
 </template>
 
 <script setup lang="ts">
-function add(a: number, b) {
-  console.log('add', a, b)
+type P = 'default' | 'app'
+
+function name<T extends P>(params: T): T {
+  return params
 }
-add(1, 2)
+console.log(name('default'))
 </script>
 
 <style scoped lang="scss">

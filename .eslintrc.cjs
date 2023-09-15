@@ -23,6 +23,7 @@ module.exports = {
     'no-multiple-empty-lines': [2, { // 空行不能超过 1 行
       'max': 1
     }],
+    'vue/multi-word-component-names': 0, // vue文件命名规范
     'no-trailing-spaces': 2, // 一行结束后面不要有空格
     'space-before-function-paren': [2, 'never'], // 函数定义时括号前面不要有空格
     'spaced-comment': [2, 'always', { // 注释时要有空格
