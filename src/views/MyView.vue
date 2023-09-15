@@ -45,7 +45,7 @@ cloned.value.key = 'some new value'
 
 console.log(cloned.value.key) // 'some new value'
 console.log(original.value.key) // 'value'
-
+console.log('合并一下试试')
 const state = useStorage('my-store', { hello: 'hi', greeting: 'Hello' })
 console.log(state.value, 'state')
 </script>
