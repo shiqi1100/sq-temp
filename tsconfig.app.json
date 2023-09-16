@@ -11,6 +11,6 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["vite/client"]
+    "types": ["vite/client", "element-plus/global"]
   }
 }
