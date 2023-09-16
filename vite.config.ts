@@ -9,7 +9,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/h5-20230911-tem',
+  base: '/sq-temp',
   plugins: [
     vue(),
     vueJsx(),
