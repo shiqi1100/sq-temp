@@ -28,6 +28,7 @@ module.exports = {
         max: 1
       }
     ],
+    'no-undef': 0,
     'vue/multi-word-component-names': 0, // vue文件命名规范
     'no-trailing-spaces': 0, // 一行结束后面不要有空格
     'space-before-function-paren': [2, 'never'], // 函数定义时括号前面不要有空格
