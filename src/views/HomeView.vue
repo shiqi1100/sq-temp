@@ -1,5 +1,8 @@
 <template>
-  <div class="container"></div>
+  <div class="container">
+    <el-button type="primary" size="default">primary</el-button>
+    <i-ep-plus />
+  </div>
 </template>
 
 <script setup lang="ts"></script>
