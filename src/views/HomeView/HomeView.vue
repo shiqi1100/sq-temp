@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import Menu from './Menu.vue'
+import Menu from '@/views/HomeView/components/Menu.vue'
 </script>
 
 <style lang="scss" scoped>
