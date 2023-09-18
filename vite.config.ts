@@ -2,8 +2,6 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import autoprefixer from 'autoprefixer'
-// import postCssPxToRem from 'postcss-pxtorem'
 import eslintPlugin from 'vite-plugin-eslint'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -50,6 +48,16 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
+  server: {
+    open: true,
+    // port: 5188,
+    proxy: {
+      '/api': {
+        target: '',
+        changeOrigin: true
+      }
     }
   }
 })

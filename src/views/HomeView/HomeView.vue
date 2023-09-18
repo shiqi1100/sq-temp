@@ -1,0 +1,23 @@
+<template>
+  <div class="h-full">
+    <el-container class="h-full flex">
+      <el-aside class="h-full bg-slate-400">
+        <Menu></Menu>
+      </el-aside>
+      <el-container class="h-full grow">
+        <el-header>Header</el-header>
+        <el-main>Main</el-main>
+      </el-container>
+    </el-container>
+  </div>
+</template>
+
+<script setup lang="ts">
+import Menu from './Menu.vue'
+</script>
+
+<style lang="scss" scoped>
+.el-aside {
+  width: auto;
+}
+</style>
