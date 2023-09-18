@@ -1,53 +1,53 @@
 <template>
-  <div class="login-main">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
-      <div style="color: black" class="py-[10px] font-bold flex justify-center">登录</div>
-      <el-form-item prop="username">
-        <el-input v-model="loginForm.username" placeholder="请输入名称"></el-input>
-      </el-form-item>
-      <el-form-item prop="password">
-        <el-input type="password" v-model="loginForm.password" placeholder="请输入密码"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="login">登录</el-button>
-      </el-form-item>
-    </el-form>
+  <div
+    class="w-full h-full flex justify-center items-center bg-gradient-to-r from-cyan-500 to-blue-500"
+  >
+    <div class="w-[500px] p-1 border rounded-[12px] bg-white">
+      <el-form ref="ruleFormRef" :model="ruleForm" status-icon :rules="rules" class="demo-ruleForm">
+        <div class="flex justify-center font-bold py-[8px] text-[26px]">登录</div>
+        <el-form-item label="名称" prop="name">
+          <el-input v-model="ruleForm.name" type="text" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="密码" prop="pwd">
+          <el-input v-model="ruleForm.pwd" type="password" autocomplete="off" />
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm(ruleFormRef)">提交</el-button>
+          <el-button @click="resetForm(ruleFormRef)">重置</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import type { FormInstance, FormRules } from 'element-plus'
+const router = useRouter()
+const ruleFormRef = ref<FormInstance>()
+const ruleForm = reactive({
+  name: 'admin',
+  pwd: '123456'
+})
 
-const loginForm = ref({
-  username: 'sange',
-  password: '123456'
+const rules = reactive<FormRules<typeof ruleForm>>({
+  name: [{ required: true, trigger: 'blur' }],
+  pwd: [{ required: true, trigger: 'blur' }]
 })
-const loginRules = ref({
-  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-  password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
-})
-const login = () => {
-  // 处理登录逻辑，例如发送登录请求到服务器验证用户信息
-  // ...
+
+const submitForm = (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formEl.validate((valid) => {
+    if (valid) {
+      router.replace({ name: 'home' })
+    } else {
+      console.log('error submit!')
+      return false
+    }
+  })
+}
+
+const resetForm = (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formEl.resetFields()
 }
 </script>
-
-<style scoped lang="scss">
-.login-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-  color: #fff;
-  background-color: #303030;
-  flex-direction: column;
-
-  .login-form {
-    border-radius: 12px;
-    padding: 16px;
-    width: 300px;
-    background-color: #fff;
-  }
-}
-</style>
