@@ -20,15 +20,15 @@
   ],
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "eslint --fix"
     ],
     "package.json": [
       "prettier --write"
     ],
     "*.vue": [
-      "eslint --fix",
       "prettier --write",
+      "eslint --fix",
       "stylelint --fix"
     ],
     "*.{css,scss,html}": [
