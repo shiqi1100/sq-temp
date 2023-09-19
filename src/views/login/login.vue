@@ -21,12 +21,16 @@
 </template>
 
 <script lang="ts" setup>
-import type { FormInstance, FormRules } from 'element-plus'
+import { ElNotification, type FormInstance, type FormRules } from 'element-plus'
+import { Login } from '@/api/system/login'
+import { userInfoStore } from '@/stores/userInfo'
+const { useInfoData } = userInfoStore()
+
 const router = useRouter()
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive({
-  name: 'admin',
-  pwd: '123456'
+  name: '',
+  pwd: ''
 })
 
 const rules = reactive<FormRules<typeof ruleForm>>({
@@ -38,7 +42,26 @@ const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
-      router.replace({ name: 'home' })
+      const params = {
+        userName: ruleForm.name,
+        passWord: ruleForm.pwd,
+        terminaltype: 'WEB',
+        auto: '0'
+      }
+      Login(params)
+        .then((res) => {
+          if (res.rspCode !== 0) {
+            return ElNotification({
+              title: '提醒',
+              message: res.rspMsg || '登录失败',
+              type: 'warning'
+            })
+          }
+          useInfoData.token = res.data.auth.accessToken || ''
+          useInfoData.companyId = res.data.companyId || ''
+          router.replace({ name: 'home' })
+        })
+        .catch((err) => console.log(err))
     } else {
       console.log('error submit!')
       return false

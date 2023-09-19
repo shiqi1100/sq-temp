@@ -1,23 +1,28 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig } from 'axios'
+import { userInfoStore } from '@/stores/userInfo'
 type ResponseDataWrapper<T = any> = {
   data: T
-  code: number
-  msg: string
+  rspCode: number
+  rspMsg: string | null
 }
 class AxiosHttp {
   private readonly instance: AxiosInstance
   constructor() {
     this.instance = axios.create({
-      baseURL: '/bdsaas',
+      baseURL: '/bdsaas/ajax',
       timeout: 10000
     })
     this.initInterceptors()
   }
 
   initInterceptors() {
+    const { useInfoData } = userInfoStore()
+    console.log(useInfoData)
     // 添加请求拦截器
     this.instance.interceptors.request.use(
       function(config) {
+        config.data.token = useInfoData.token || ''
+        config.data.COMPANYID = useInfoData.companyId || ''
         // 在发送请求之前做些什么
         return config
       },
