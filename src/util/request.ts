@@ -1,5 +1,7 @@
-import axios, { type AxiosInstance, type AxiosRequestConfig } from 'axios'
+import axios, { type AxiosInstance, type AxiosRequestConfig, type AxiosResponse } from 'axios'
 import { userInfoStore } from '@/stores/userInfo'
+import { interceptor } from './interceptor'
+import router from '@/router'
 type ResponseDataWrapper<T = any> = {
   data: T
   rspCode: number
@@ -9,20 +11,17 @@ class AxiosHttp {
   private readonly instance: AxiosInstance
   constructor() {
     this.instance = axios.create({
-      baseURL: '/bdsaas/ajax',
-      timeout: 10000
+      timeout: 1000 * 10
     })
     this.initInterceptors()
   }
 
   initInterceptors() {
-    const { useInfoData } = userInfoStore()
-    console.log(useInfoData)
     // 添加请求拦截器
     this.instance.interceptors.request.use(
       function(config) {
-        config.data.token = useInfoData.token || ''
-        config.data.COMPANYID = useInfoData.companyId || ''
+        // 我的 中间件
+        interceptor(config)
         // 在发送请求之前做些什么
         return config
       },
@@ -34,9 +33,18 @@ class AxiosHttp {
 
     // 添加响应拦截器
     this.instance.interceptors.response.use(
-      function(response) {
+      function(response: AxiosResponse<ResponseDataWrapper>) {
         // 2xx 范围内的状态码都会触发该函数。
         // 对响应数据做点什么
+        try {
+          if (response.status === 200 && response.data.rspCode === 0) {
+            Promise.resolve(response.data)
+          } else {
+            router.replace({ name: 'login' })
+          }
+        } catch (e) {
+          Promise.reject(e)
+        }
         return response
       },
       function(error) {

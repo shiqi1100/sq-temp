@@ -13,12 +13,17 @@
 </template>
 
 <script setup lang="ts">
-import { userInfoStore } from '@/stores/userInfo'
+import { Getmenu } from '@/api/system/menu'
 import Menu from '@/views/HomeView/components/Menu.vue'
-const { useInfoData } = userInfoStore()
+
+function getmenuList() {
+  return Getmenu().then((res) => {
+    // console.log(res)
+  })
+}
 
 onMounted(() => {
-  console.log(useInfoData)
+  getmenuList()
 })
 </script>
 

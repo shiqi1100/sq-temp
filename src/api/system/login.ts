@@ -8,4 +8,5 @@ type LoginType = {
   auto: string
 }
 
-export const Login = (params: LoginType) => http.postForm<LoginData>('/main/login.do', params)
+export const Login = (params: LoginType) =>
+  http.postForm<LoginData>('/bdsaas/ajax/main/login.do', params)
