@@ -54,7 +54,7 @@ export default defineConfig(({ command, mode }) => {
     },
     server: {
       open: true,
-      // port: 5188,
+      port: 9527,
       proxy: {
         '/bdsaas': {
           target: VITE_HOST,

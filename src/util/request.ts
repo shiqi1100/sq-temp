@@ -1,5 +1,4 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig, type AxiosResponse } from 'axios'
-import { userInfoStore } from '@/stores/userInfo'
 import { interceptor } from './interceptor'
 import router from '@/router'
 type ResponseDataWrapper<T = any> = {

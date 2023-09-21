@@ -1,4 +1,5 @@
 import './assets/main.css'
+import 'nprogress/nprogress.css'
 import 'amfe-flexible'
 import 'element-plus/dist/index.css'
 import { createApp } from 'vue'
