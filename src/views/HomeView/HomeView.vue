@@ -5,8 +5,18 @@
         <Menu></Menu>
       </el-aside>
       <el-container class="h-full grow">
-        <el-header>Header</el-header>
-        <el-main>Main</el-main>
+        <el-header>
+          <div class="w-full h-full flex">
+            <div class="flex justify-center items-center cursor-pointer hover:text-blue-600">
+              <div>&lt;&nbsp;</div>
+              <div>vue</div>
+            </div>
+            <div></div>
+          </div>
+        </el-header>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -18,17 +28,22 @@ import Menu from '@/views/HomeView/components/Menu.vue'
 
 function getmenuList() {
   return Getmenu().then((res) => {
-    // console.log(res)
+    console.log(res)
   })
 }
 
 onMounted(() => {
-  getmenuList()
+  // getmenuList()
 })
 </script>
 
 <style lang="scss" scoped>
 .el-aside {
   width: auto;
+
+  .el-menu:not(.el-menu--collapse) {
+    width: 250px;
+    min-height: 400px;
+  }
 }
 </style>

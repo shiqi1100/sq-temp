@@ -18,6 +18,8 @@ module.exports = {
     'block-no-empty': true,
     // 颜色3位长度
     'color-hex-length': 'short',
+    // 下划线
+    'selector-class-pattern': null,
     // 兼容自定义标签名
     'selector-type-no-unknown': [
       true,
