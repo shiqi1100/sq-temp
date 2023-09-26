@@ -2,9 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 import routes from './modules/index'
 import { userInfoStore } from '@/stores/userInfo'
 import { start, done } from 'nprogress'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // 始终滚动到顶部
+    return { top: 0 }
+  }
 })
 
 router.beforeEach((to, from, next) => {
