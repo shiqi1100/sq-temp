@@ -8,7 +8,7 @@
         </template>
         <sub-menu :data="item.children"></sub-menu>
       </el-sub-menu>
-      <el-menu-item v-else :index="item.path">
+      <el-menu-item v-else :index="item.path" :disabled="!item.meta.hiddle">
         <el-icon><icon-menu /></el-icon>
         <template #title>{{ item.name }}</template>
       </el-menu-item>
@@ -22,6 +22,8 @@ import { Menu as IconMenu, Location } from '@element-plus/icons-vue'
 const props = defineProps<{
   data: any[]
 }>()
+
+console.log(props.data)
 </script>
 <style lang="scss">
 /* 隐藏文字 */

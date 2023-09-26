@@ -7,17 +7,26 @@ export const menuArr = [
       {
         name: 'vue页面',
         path: '/vue',
-        children: []
+        children: [],
+        meta: {
+          hiddle: true
+        }
       },
       {
         name: 'react页面',
         path: '/react',
-        children: []
+        children: [],
+        meta: {
+          hiddle: true
+        }
       },
       {
         name: 'angular页面',
         path: '/angular',
-        children: []
+        children: [],
+        meta: {
+          hiddle: true
+        }
       }
     ]
   },
@@ -29,7 +38,10 @@ export const menuArr = [
       {
         name: 'Spring Boot页面',
         path: '/springBoot',
-        children: []
+        children: [],
+        meta: {
+          hiddle: false
+        }
       },
       {
         name: 'Spring页面',
@@ -38,19 +50,28 @@ export const menuArr = [
           {
             name: 'MySql页面',
             path: '/mysql',
-            children: []
+            children: [],
+            meta: {
+              hiddle: false
+            }
           },
           {
             name: 'Redis页面',
             path: '/redis',
-            children: []
+            children: [],
+            meta: {
+              hiddle: false
+            }
           }
         ]
       },
       {
         name: 'Mybatis页面',
         path: '/mybatis',
-        children: []
+        children: [],
+        meta: {
+          hiddle: false
+        }
       }
     ]
   }

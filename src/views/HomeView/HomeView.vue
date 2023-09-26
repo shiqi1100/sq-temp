@@ -7,14 +7,16 @@
       <el-container class="h-full grow">
         <el-header>
           <div class="w-full h-full flex">
-            <div class="flex justify-center items-center cursor-pointer hover:text-blue-600">
+            <div
+              class="flex justify-center items-center cursor-pointer hover:text-[#0056ff] text-[20px]"
+            >
               <div>&lt;&nbsp;</div>
               <div>vue</div>
             </div>
             <div></div>
           </div>
         </el-header>
-        <el-main>
+        <el-main class="bg-[#f2f5fa]">
           <router-view></router-view>
         </el-main>
       </el-container>

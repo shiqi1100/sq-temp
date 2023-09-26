@@ -5,7 +5,6 @@
     class="h-full"
     :collapse="isCollapse"
     router
-    @open="open"
   >
     <sub-menu :data="menuArr"></sub-menu>
     <div

@@ -1,5 +1,7 @@
 <template>
-  <div>react</div>
+  <div class="w-full h-full">
+    <iframe src="https://react.docschina.org/learn" width="100%" height="100%"></iframe>
+  </div>
 </template>
 
 <script lang="ts" setup></script>
