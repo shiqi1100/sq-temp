@@ -1,4 +1,5 @@
 <template>
+  <div id="recv"></div>
   <div class="w-full h-full">
     <iframe src="https://cn.vuejs.org/guide/introduction.html" width="100%" height="100%"></iframe>
   </div>

@@ -5,6 +5,14 @@ export const menuArr = [
     path: '前端三大框架',
     children: [
       {
+        name: 'test页面',
+        path: '/test',
+        children: [],
+        meta: {
+          hiddle: true
+        }
+      },
+      {
         name: 'vue页面',
         path: '/vue',
         children: [],
