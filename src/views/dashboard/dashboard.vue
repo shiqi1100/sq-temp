@@ -6,19 +6,12 @@
 const props = defineProps<{
   count: number
 }>()
-const emits = defineEmits(['update: count'])
 const render = () => {
   return (
     <div>
       <div class="content">count is {props.count}</div>
       <div>
-        <button
-          onClick={() => {
-            emits('update:count', props.count + 1)
-          }}
-        >
-          add
-        </button>
+        <button>add</button>
       </div>
     </div>
   )
