@@ -5,8 +5,13 @@ const list: Array<RouteRecordRaw> = [
     path: '/',
     name: 'home',
     component: () => import('@/views/HomeView/HomeView.vue'),
-    redirect: '/vue',
+    redirect: '/test',
     children: [
+      {
+        path: '/test',
+        name: 'test',
+        component: () => import('@/views/test/testView.vue')
+      },
       {
         path: '/vue',
         name: 'vue',

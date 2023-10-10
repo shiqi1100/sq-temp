@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    default-active="/vue"
+    :default-active="$route.path"
     :default-openeds="['前端三大框架']"
     class="h-full"
     :collapse="isCollapse"

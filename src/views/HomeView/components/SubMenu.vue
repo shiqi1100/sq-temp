@@ -8,7 +8,12 @@
         </template>
         <sub-menu :data="item.children"></sub-menu>
       </el-sub-menu>
-      <el-menu-item v-else :index="item.path" :disabled="!item.meta.hiddle">
+      <el-menu-item
+        v-else
+        :index="item.path"
+        :disabled="!item.meta.hiddle"
+        @click="changeMenu(item.name)"
+      >
         <el-icon><icon-menu /></el-icon>
         <template #title>{{ item.name }}</template>
       </el-menu-item>
@@ -18,12 +23,15 @@
 
 <script lang="ts" setup>
 import { Menu as IconMenu, Location } from '@element-plus/icons-vue'
-
+import { userMenuStore } from '@/stores/menu'
+const menuStore = userMenuStore()
 const props = defineProps<{
   data: any[]
 }>()
 
-console.log(props.data)
+const changeMenu = (value: string) => {
+  menuStore.state.title = value
+}
 </script>
 <style lang="scss">
 /* 隐藏文字 */

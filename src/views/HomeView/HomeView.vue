@@ -6,14 +6,14 @@
       </el-aside>
       <el-container class="h-full grow">
         <el-header>
-          <div class="w-full h-full flex">
-            <div
-              class="flex justify-center items-center cursor-pointer hover:text-[#0056ff] text-[20px]"
-            >
-              <div>&lt;&nbsp;</div>
-              <div>vue</div>
-            </div>
-            <div></div>
+          <div class="w-full h-full flex items-center">
+            <el-page-header @back="goBack">
+              <template #content>
+                <span class="text-large font-600 mr-3">
+                  {{ pageTitle }}
+                </span>
+              </template>
+            </el-page-header>
           </div>
         </el-header>
         <el-main class="bg-[#f2f5fa]">
@@ -27,12 +27,21 @@
 <script setup lang="ts">
 import { Getmenu } from '@/api/system/menu'
 import Menu from '@/views/HomeView/components/Menu.vue'
-
+const router = useRouter()
+const route = useRoute()
 function getmenuList() {
   return Getmenu().then((res) => {
     console.log(res)
   })
 }
+
+const goBack = () => {
+  router.back()
+}
+
+const pageTitle = computed(() => {
+  return route.name
+})
 
 onMounted(() => {
   // getmenuList()
