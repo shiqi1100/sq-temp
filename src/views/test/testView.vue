@@ -20,9 +20,11 @@ type person1 = { name: string; age: number }
 type Kevin = typeof person
 type P = keyof Kevin
 
-const arr = [1,2,3,4,5] // todo
+const arr = [1, 2, 3, 4, 5] // todo
 
-const obj = {name: '测试'}
+const obj = { name: '测试' }
+
+console.log('工作1')
 
 function changeObjValue<T, U extends Extract<keyof T, string>>(obj: T, value: U) {
   return obj[value]
