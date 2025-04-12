@@ -33,6 +33,12 @@ function changeObjValue1<T, U extends keyof T>(obj: T, value: U) {
   return obj[value]
 }
 console.log(changeObjValue(person, 'age'))
+
+console.log('demo 1')
+
+console.log('demo 2')
+
+console.log('demo 3')
 changeObjValue1(person, 'age')
 </script>
 
