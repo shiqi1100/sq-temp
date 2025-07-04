@@ -98,11 +98,10 @@
               id="search"
               inputmode="search"
               type="search"
-              required=""
               aria-label="搜索虚幻引擎网站"
               placeholder="搜索"
             />
-            <button class="search__submit" type="submit">
+            <button class="search__submit">
               <div aria-hidden="true" class="search__icon">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
                   <path
@@ -113,7 +112,7 @@
                 </svg>
               </div>
             </button>
-            <button class="search__close" type="reset" aria-label="关闭搜索">
+            <button class="search__close" aria-label="关闭搜索">
               <span aria-hidden="true" class="icon-wrapper">
                 <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -156,7 +155,7 @@
             decoding="async"
             data-nimg="fill"
             src="https://cms-assets.unrealengine.com/AiKUh5PQCTaOFnmJDZJBfz/1apgNGiXQCy67NbFZw2R"
-            style=" width: 270px;height: 37px; color: transparent; inset: 0; object-fit: contain"
+            style="width: 270px; height: 37px; color: transparent; inset: 0; object-fit: contain"
           />
           <div class="text-[64px] text-[#fff] font-bold leading-none">我们制作引擎</div>
           <div class="text-[64px] text-[#fff] font-bold leading-none">而你将让它变得虚幻。</div>
@@ -169,7 +168,7 @@
           </div>
         </div>
         <div class="absolute right-0 w-[60%]">
-          <video class="w-[100%] rounded-xs" autoplay muted playsinline>
+          <video class="w-[100%] rounded-xs" :autoplay="true" playsinline>
             <source
               src="https://cms-assets.unrealengine.com/AiKUh5PQCTaOFnmJDZJBfz/d66nnRxEQpatoaaSG3ww"
               type="video/mp4"
